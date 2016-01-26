@@ -10,6 +10,5 @@ deploy:
     - install-packages:
         packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
-        token: 2507971dfbd46727e5aa851011675d80298a9e16
         domain: 127.0.0.1
         basedir: public
