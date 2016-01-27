@@ -6,3 +6,11 @@ build:
         theme: herring-cove
         flags: --buildDrafts=true
   
+deploy:
+    steps:
+        # This is used to deploy in the voiceinn server
+       - install-packages:
+         packages: git ssh-client
+       - setting:
+         domain: 103.233.58.74
+         basedir: html
