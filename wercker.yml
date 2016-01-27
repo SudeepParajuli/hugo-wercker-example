@@ -8,7 +8,7 @@ build:
   
 deploy:
     steps:
-        # This is used to deploy in the voiceinn server
+        # Thiss is used to deploy in the voiceinn server
        - install-packages:
          packages: git ssh-client
        - setting:
