@@ -8,9 +8,14 @@ build:
   
 deploy:
     steps:
-        # Thiss is used to deploy in the voiceinn server
-       - install-packages:
-         packages: git ssh-client
-       - setting:
-         domain: 103.233.58.74
-         basedir: html
+      - script:
+        name: get latest sloppy cli
+        code: |
+          curl -L http://files.sloppy.io/sloppy-`uname -s`-`uname -m` > /usr/local/bin/sloppy
+          chmod +x /usr/local/bin/sloppy
+      - script:
+        name: deploy latest image
+        code: sloppy change todo/frontend/node -image $REPOSITORY:$WERCKER_GIT_COMMIT
+      - script:
+        name: logout
+        code: sloppy logout
